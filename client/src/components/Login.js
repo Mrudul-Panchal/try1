@@ -34,7 +34,7 @@ const Login = () => {
                             </div>
                                 <div className="form-group form-button">
                                     <input type="submit" name="submit" id="submit" className="form-submit"
-                                    value='register' />
+                                    value='Login' />
                             </div>
 
                             <div className="Login-image">
