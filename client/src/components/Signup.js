@@ -22,7 +22,17 @@ let name,value;
 
         const { name, email, password, cpassword } = user;
 
-       await fetch('/register')
+        const res = await fetch('/register',{
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json"
+            }
+            body: JSON.stringify({
+                name , email , password , cpassword
+            })
+        });
+
+        const res = await res.json();
     }
 
 
