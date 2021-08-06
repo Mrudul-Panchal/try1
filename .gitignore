@@ -1,0 +1,9 @@
+node_modules
+
+// {
+    "name":"Mrudul",
+    "email":"mru@test.com",
+    "password":"1234",
+    "cpassword":"1234",
+    "role":"admin"
+}
