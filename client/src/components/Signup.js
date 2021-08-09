@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 const Signup = () => {
-
+    const history = useHistory();
     const [user,setUser] = useState({
-        name: "", email: "", password: "", cpassword: ""
+        name: "", email: "", password: "", cpassword: "", role: ""
     });
 
 let name,value;
@@ -20,20 +20,36 @@ let name,value;
     const PostData = async (e) => {
         e.preventDefault();
 
-        const { name, email, password, cpassword } = user;
+        const { name, email, password, cpassword, role } = user;
 
-        const res = await fetch('/register',{
+console.log('1');
+
+        const res = await fetch("/register",{
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"
-            }
-            body: JSON.stringify({
-                name , email , password , cpassword
+            },
+            body : JSON.stringify({
+                name , email , password , cpassword, role : "basic"
             })
         });
+console.log('2');
+        const data = await res.json();
 
-        const res = await res.json();
+
+        if(data.status === 422 || !data ){
+            window.alert("Invalid Registration");
+            console.log("Invalid Registration");
+        } else {
+            window.alert("Successfully Registered");
+            console.log("Successfully Registered");
+            console.log("10");
+            history.push("/login");
+        }
+        console.log('9');
     }
+
+console.log('3');
 
 
     return (
@@ -125,5 +141,5 @@ let name,value;
         </section>
     )
 }
-
+console.log('4');
 export default Signup 
