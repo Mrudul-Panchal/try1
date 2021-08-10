@@ -27,15 +27,15 @@ app.get('/', (req, res) => {
     res.send('its working')
 });
 
-app.get('/about', middleware, (req, res) => {
+/* app.get('/about', middleware, (req, res) => {
     console.log('About page')
     res.send('its working ABOUT')
-});
+}); */
 
-app.get('/contact', (req, res) => {
+/* app.get('/contact', (req, res) => {
     res.cookie("Test", 'Mrud');
     res.send('its working contact me')
-});
+}); */
 
 app.get('/signin', (req, res) => {
     res.send('Login here')
