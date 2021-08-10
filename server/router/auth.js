@@ -130,5 +130,11 @@ router.get('/contact', authenticate, (req, res) => {
     res.send(req.rootUser);
 });
 
+router.get('/logout', (req, res) => {
+    console.log('Logout Page');
+    res.clearCookie('jwtoken', { path:'/' });
+    res.status(200).send('User Logout');
+});
+
 
 module.exports = router;
